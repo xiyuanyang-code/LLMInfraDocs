@@ -21,3 +21,11 @@ hugo serve
 # add new posts
 hugo new content content/posts/my-first-post.md
 ```
+
+## Update Plans
+
+- LLM Inference: [vllm](https://github.com/vllm-project/vllm)
+- MS Swift (LLM Training): [ms-swift](https://github.com/modelscope/ms-swift)
+- Slime (Agentic RL): [slime](https://github.com/THUDM/slime)
+- harbor (Docker and Agentic Evaluation): [harbor](https://github.com/harbor-framework/harbor)
+- Megatron-LM (GPU-optimized library): [megatron-lm](https://github.com/nvidia/megatron-lm)
