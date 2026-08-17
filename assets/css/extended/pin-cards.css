@@ -1,20 +1,23 @@
-/* 首页置顶卡片: intro = 青色, slime index = 琥珀色
- * 由 layouts/index.html 依据 frontmatter 的 pin 字段生成 pin-intro / pin-slime class
+/* 首页置顶卡片: intro = 青色, slime index = 琥珀色, llm-training-algo = 橙色
+ * 由 layouts/index.html 依据 frontmatter 的 pin 字段生成 pin-intro / pin-slime / pin-algo class
  */
 
 :root {
   --pin-intro: #0891b2; /* cyan-600 */
   --pin-slime: #d97706; /* amber-600 */
+  --pin-algo: #ea580c;  /* orange-600 */
 }
 
 :root[data-theme="dark"] {
   --pin-intro: #22d3ee; /* cyan-400 */
   --pin-slime: #fbbf24; /* amber-400 */
+  --pin-algo: #fb923c;  /* orange-400 */
 }
 
 /* 卡片底色 + 左边强调条 */
 .post-entry.pin-intro,
-.post-entry.pin-slime {
+.post-entry.pin-slime,
+.post-entry.pin-algo {
   border-left: 4px solid var(--pin-color, var(--pin-intro));
 }
 
@@ -30,15 +33,23 @@
   border-color: color-mix(in srgb, var(--pin-slime) 40%, var(--border));
 }
 
+.post-entry.pin-algo {
+  --pin-color: var(--pin-algo);
+  background: color-mix(in srgb, var(--pin-algo) 9%, var(--entry));
+  border-color: color-mix(in srgb, var(--pin-algo) 40%, var(--border));
+}
+
 /* 给标题留出右上角置顶徽标的位置,避免文字被盖住 */
 .post-entry.pin-intro .entry-header,
-.post-entry.pin-slime .entry-header {
+.post-entry.pin-slime .entry-header,
+.post-entry.pin-algo .entry-header {
   padding-right: 3.5rem;
 }
 
 /* 置顶徽标 */
 .post-entry.pin-intro::after,
-.post-entry.pin-slime::after {
+.post-entry.pin-slime::after,
+.post-entry.pin-algo::after {
   content: "Pinned";
   position: absolute;
   top: 12px;
@@ -60,4 +71,8 @@
 
 :root[data-theme="dark"] .post-entry.pin-slime::after {
   color: #451a03;
+}
+
+:root[data-theme="dark"] .post-entry.pin-algo::after {
+  color: #431407;
 }

@@ -1,5 +1,6 @@
 +++
 title = 'Slime 101: Training'
+description = 'Slime internals: the Megatron training loop, model switching, and weight updates.'
 date = '2026-08-09'
 tags = ['slime']
 weight = 100 # 优先级最低, 排在 slime 专题 index 之后
@@ -49,6 +50,9 @@ backend 层只实现 Megatron 特有部分(`init`、`train_actor`、`update_weig
 
 - Rollout/Generations:
     - 模型不会进行梯度计算和权重更新，而是进行数据 rollout，拿到 log_probs 等 snapshot，存储起来作为训练数据
+    - 前向计算的核心就是**谁 Rollout 什么数据**:
+        - "什么数据为上游数据输入的准备"
+        - 关键在于**模型权重的切换**: `ref_model`, `teacher_model`, `actor_model`
 - Optimizations:
     - Training Forward: 开梯度前向计算，得到 log_probs
     - 计算 Loss (根据现有的数据，例如 log_probs, old_log_probs, advantages) 进行计算并且反向传比

@@ -1,6 +1,7 @@
 +++
 date = '2026-06-07T15:41:59Z'
 title = 'Intro'
+description = 'From-scratch notes on open-source LLM infrastructure: Megatron-LM, slime, ms-swift, vllm, sglang, harbor.'
 weight = -100 # 置顶, 优先级最高
 pin = 'intro' # 首页卡片用青色
 +++
